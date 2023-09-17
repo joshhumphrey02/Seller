@@ -1,0 +1,99 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* :root {
+  --foreground-rgb: 0, 0, 0;
+  --background-start-rgb: 214, 219, 220;
+  --background-end-rgb: 255, 255, 255;
+}
+
+@media (prefers-color-scheme: light) {
+  :root {
+    --foreground-rgb: 255, 255, 255;
+    --background-start-rgb: 0, 0, 0;
+    --background-end-rgb: 0, 0, 0;
+  }
+} */
+
+* {
+  text-decoration: none;
+  outline: none;
+}
+
+a {
+  text-decoration: none !important;
+  text-decoration-line: none !important;
+}
+
+body {
+  color: black;
+  background: lightgray;
+}
+.seg_bg_primary {
+  background: white;
+}
+.seg_container {
+  width: 92%;
+  margin: 0 auto;
+}
+
+section {
+  display: grid;
+  height: 100vh;
+  grid-template-columns: 15rem 2rem auto;
+}
+input {
+  background: transparent !important;
+  background-color: none !important;
+}
+main {
+  grid-column: 3;
+}
+@layer base {
+  html {
+    font-family: Arial, Helvetica, sans-serif;
+    line-height: 1.3;
+  }
+  th,
+  td {
+    @apply py-3 px-2.5 text-sm text-left border-y border-gray-200;
+  }
+  thead {
+    @apply bg-neutral-100;
+  }
+  th {
+    @apply font-semibold;
+  }
+  a {
+    @apply text-sky-500 hover:underline;
+  }
+}
+/* .btn-check:checked + .btn,
+.btn.active,
+.btn.show,
+.btn:first-child:active,
+:not(.btn-check) + .btn:active {
+  border-color: transparent;
+} */
+
+@media screen and (max-width: 900px) {
+  .seg_container {
+    width: 94%;
+  }
+}
+@media screen and (max-width: 700px) {
+  .seg_container {
+    width: 96%;
+  }
+}
+@media screen and (max-width: 600px) {
+  .seg_container {
+    width: 96%;
+  }
+}
+@media screen and (max-width: 450px) {
+  .seg_container {
+    width: 100%;
+  }
+}
