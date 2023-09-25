@@ -75,8 +75,8 @@ const data = [
 
 export default function TransactionChart() {
   return (
-    <div className="t-chart h-[22rem] seg_bg_primary col-span-2 p-4 rounded-sm border border-gray-200 flex flex-col">
-      <strong className="text-gray-700 font-medium">Transactions</strong>
+    <div className=" h-[22rem] bg_primary col-span-2 p-4 rounded-sm border border_color flex flex-col">
+      <strong className="text_muted font-medium">Transactions</strong>
       <div className="mt-3 w-full flex-1 text-xs">
         <ResponsiveContainer width="100%" height="100%">
           <BarChart
@@ -96,7 +96,7 @@ export default function TransactionChart() {
             <Tooltip />
             <Legend />
             <Bar dataKey="Income" fill="#0ea5e9" />
-            <Bar dataKey="Expense" fill="#ea580c" />
+            {/* <Bar dataKey="Expense" fill="#ea580c" /> */}
           </BarChart>
         </ResponsiveContainer>
       </div>

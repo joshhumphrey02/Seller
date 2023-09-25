@@ -1,19 +1,23 @@
-"use client";
-import "@/styles/dashboard.css";
-import Navbar from "@/components/admin/utils/Navbar";
-import Sidebar from "@/components/admin/utils/Sidebar";
+import { Theme } from "@/components/utils/Theme";
+import "@/styles/globals.css";
+import { ToastContainer } from "react-toastify";
 
-export default function Layout({ children }) {
+export default function RootLayout({ children }) {
   return (
-    <div className=" main_seg relative w-screen overflow-x-hidden grid h-screen">
-      <Sidebar page="seller" />
-      <div
-        style={{ gridTemplateRows: "5rem auto" }}
-        className=" col-start-2 w-full gap-2 relative grid"
-      >
-        <Navbar />
-        <div className=" p-1 row-start-2 flex flex-col">{children}</div>
-      </div>
-    </div>
+    <html lang="en" suppressHydrationWarning>
+      <body>
+        <Theme
+          attribute="class"
+          defaultTheme="system"
+          enableSystem
+          disableTransitionOnChange
+        >
+          <div className=" xl:w-[95%] md:w-[97%] w-[99%] mx-auto">
+            {children}
+          </div>
+        </Theme>
+        <ToastContainer />
+      </body>
+    </html>
   );
 }

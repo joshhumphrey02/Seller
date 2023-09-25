@@ -28,7 +28,6 @@ export const Categories_Links = [
     key: "ics",
     label: "IC's",
     path: "/ics",
-    path2: "/p/ics",
   },
   {
     key: "sensors",

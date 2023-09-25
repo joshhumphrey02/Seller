@@ -80,7 +80,7 @@ const subCategories = {
     { id: "6", type: "Others" },
   ],
 };
-const switcher = (cat) => {
+export const switcher = (cat) => {
   switch (cat) {
     case "accessories":
       return subCategories.accessories;

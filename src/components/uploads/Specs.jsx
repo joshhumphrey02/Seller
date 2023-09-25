@@ -11,7 +11,7 @@ const Specs = () => {
       <h5 className="text-center mt-2 capitalize">Product specification</h5>
       <div>
         <div className="mt-2 flex flex-col gap-2">
-          <div className="border-2 px-2 rounded-md border-gray-600">
+          <div className="border-2 px-2 rounded-md border_color">
             <input
               type="text"
               onChange={(e) => setColor(e.target.value)}
@@ -20,7 +20,7 @@ const Specs = () => {
               value={color}
             />
           </div>
-          <div className="border-2 px-2 rounded-md border-gray-600">
+          <div className="border-2 px-2 rounded-md border_color">
             <input
               type="text"
               onChange={(e) => setWeight(e.target.value)}
@@ -29,7 +29,7 @@ const Specs = () => {
               value={weight}
             />
           </div>
-          <div className="border-2 px-2 rounded-md border-gray-600">
+          <div className="border-2 px-2 rounded-md border_color">
             <input
               type="text"
               onChange={(e) => setModel(e.target.value)}
@@ -38,7 +38,7 @@ const Specs = () => {
               value={model}
             />
           </div>
-          <div className="border-2 px-2 rounded-md border-gray-600">
+          <div className="border-2 px-2 rounded-md border_color">
             <input
               type="text"
               onChange={(e) => setQuantity(e.target.value)}

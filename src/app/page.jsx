@@ -1,21 +1,14 @@
-import DashboardStatsGrid from "@/components/admin/dashboard/DashboardStatsGrid";
-import TransactionChart from "@/components/admin/dashboard/TransactionChart";
-import RecentOrders from "@/components/admin/dashboard/RecentOrders";
-import BuyerProfilePieChart from "@/components/admin/dashboard/BuyerProfilePieChart";
-import PopularProducts from "@/components/admin/dashboard/PopularProducts";
+"use client";
+import Index from "@/components/dashboard";
+import Dashboard from "@/components/dashboard/dashboard";
+import "@/styles/dashboard.css";
 
-export default function Dashboard() {
-  return (
-    <div className="w-full p-1 flex flex-col gap-4">
-      <DashboardStatsGrid />
-      <div className="charts grid grid-cols-3 gap-4 w-full">
-        <TransactionChart />
-        <BuyerProfilePieChart />
-      </div>
-      <div className="chart orders grid grid-cols-3 gap-4 w-full">
-        <RecentOrders />
-        <PopularProducts />
-      </div>
-    </div>
-  );
+export const metadata = {
+  title: "Sellers-ElectroniHaven",
+  description: "Your first stop electronic online website",
+};
+
+export default function Page() {
+  const user = true;
+  return <div>{user ? <Dashboard /> : <Index />}</div>;
 }

@@ -1,5 +1,5 @@
 import { format } from "date-fns";
-import { OrderStatus } from "@/models/admin/OrderStatus";
+import { OrderStatus } from "@/models/OrderStatus";
 
 const recentOrderData = [
   {
@@ -66,10 +66,10 @@ const recentOrderData = [
 
 export default function RecentOrders() {
   return (
-    <div className="seg_bg_primary recent col-span-2 px-4 pt-3 pb-4 rounded-sm border border-gray-200 flex-1">
-      <strong className="text-gray-700 font-medium">Recent Orders</strong>
-      <div className="border-x border-gray-200 rounded-sm mt-3">
-        <table className="w-full text-gray-700">
+    <div className="bg_primary recent col-span-2 px-4 pt-3 pb-4 rounded-sm border border_color flex-1">
+      <strong className="text_muted font-medium">Recent Orders</strong>
+      <div className="border-x border_color rounded-sm mt-3">
+        <table className="w-full text_muted">
           <thead>
             <tr>
               <th>ID</th>

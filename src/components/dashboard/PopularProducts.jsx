@@ -1,4 +1,5 @@
 import classNames from "classnames";
+import Image from "next/image";
 
 const popularProducts = [
   {
@@ -47,8 +48,8 @@ const popularProducts = [
 
 function PopularProducts() {
   return (
-    <div className="t-chart w-full seg_bg_primary p-4 rounded-sm border border-gray-200">
-      <strong className="text-gray-700 font-medium">Popular Products</strong>
+    <div className="w-full xl:col-span-1 col-span-2 bg_primary p-4 rounded-sm border border_color">
+      <strong className="text_muted font-medium">Popular Products</strong>
       <div className="mt-4 flex flex-col gap-3">
         {popularProducts.map((product) => (
           <a
@@ -56,15 +57,17 @@ function PopularProducts() {
             href={`/product/${product.id}`}
             className="flex items-start hover:no-underline"
           >
-            <div className="w-10 h-10 min-w-[2.5rem] bg-gray-200 rounded-sm">
-              <img
+            <div className="w-10 h-10 min-w-[2.5rem] rounded-sm">
+              <Image
+                width={100}
+                height={100}
                 className="w-full h-full object-cover rounded-sm"
                 src={product.product_thumbnail}
                 alt={product.product_name}
               />
             </div>
             <div className="ml-4 flex-1">
-              <p className="text-sm text-gray-800">{product.product_name}</p>
+              <p className="text-sm text_muted">{product.product_name}</p>
               <span
                 className={classNames(
                   product.product_stock === 0
@@ -80,7 +83,7 @@ function PopularProducts() {
                   : product.product_stock + " in Stock"}
               </span>
             </div>
-            <div className="text-xs text-gray-400 pl-1.5">
+            <div className="text-xs text_muted pl-1.5">
               {product.product_price}
             </div>
           </a>

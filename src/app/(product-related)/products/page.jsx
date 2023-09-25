@@ -1,17 +1,25 @@
-import AccordionLayout from "@/components/seller/products/AccordionLayout";
-import ProductSidebar from "@/components/seller/products/ProductSidebar";
-
-const test2 = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
+"use client";
+import Navbar from "@/components/utils/Navbar";
+import Sidebar from "@/components/utils/Sidebar";
+import { Categories_Links } from "@/models/utils/categories";
 
 export default function page() {
   return (
-    <div
-      style={{ gridTemplateColumns: "11.1rem auto" }}
-      className="relative grid gap-2"
-    >
-      <ProductSidebar />
-      <div className="flex-1 col-start-2">
-        <div>{<AccordionLayout data2={test2} />}</div>
+    <div className="main">
+      <Sidebar />
+      <div className="sub_main">
+        <Navbar />
+        <div className="sub">
+          <div className="flex gap-2 w-full flex-row h-fit overflow-scroll">
+            {Categories_Links.map((item) => (
+              <div key={item.key} value={item.label}>
+                <div className=" w-[5rem] text-sm sm:w-[9rem] sm:text-base md:w-[12rem] md:text-lg h-[5rem] bg_primary flex items-center justify-center rounded shadow-lg">
+                  {item.label}
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
       </div>
     </div>
   );

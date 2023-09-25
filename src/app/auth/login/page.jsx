@@ -7,11 +7,10 @@ import { useRouter, useSearchParams } from "next/navigation";
 import "bootstrap/dist/css/bootstrap.min.css";
 import { toast } from "react-toastify";
 import { GrClose } from "react-icons/gr";
-import { Signin } from "@/models/utils/auth";
+// import { Signin } from "@/models/utils/auth";
 
-const page = () => {
+const Page = () => {
   const router = useRouter();
-  const category = useSearchParams().get("user");
   const [isLoading, setIsLoading] = useState(false);
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -19,14 +18,14 @@ const page = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     setIsLoading(true);
-    const data = await Signin(email, password);
-    setIsLoading(false);
-    if (data?.err) {
-      toast.error(data.err);
-    } else {
-      toast.success(data.msg);
-      return router.push("/");
-    }
+    // const data = await Signin(email, password);
+    // setIsLoading(false);
+    // if (data?.err) {
+    //   toast.error(data.err);
+    // } else {
+    //   toast.success(data.msg);
+    //   return router.push("/");
+    // }
   };
 
   return (
@@ -38,7 +37,7 @@ const page = () => {
         </div>
         <Form
           method="post"
-          action={"/auth/f/login"}
+          action={"/auth/login"}
           className="px-2 mt-1"
           onSubmit={(e) => handleSubmit(e)}
         >
@@ -46,6 +45,7 @@ const page = () => {
             <Form.Label>Email address</Form.Label>
             <Form.Control
               type="email"
+              value={email}
               onChange={(e) => setEmail(e.target.value)}
               placeholder="name@gmail.com"
               autoFocus
@@ -56,6 +56,7 @@ const page = () => {
             <Form.Label>Password</Form.Label>
             <Form.Control
               type="password"
+              value={password}
               onChange={(e) => setPassword(e.target.value)}
               placeholder="Password"
               required
@@ -78,7 +79,7 @@ const page = () => {
             </Button>
           </div>
           <p className="text-sm text-center mt-2">
-            Don't have an account? <Link href="/auth/f/register">Sign up</Link>
+            Dont have an account? <Link href="/auth/register">Sign up</Link>
           </p>
         </Form>
       </div>
@@ -86,4 +87,4 @@ const page = () => {
   );
 };
 
-export default page;
+export default Page;

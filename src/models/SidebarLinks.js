@@ -1,7 +1,7 @@
+import { ListOrderedIcon } from "lucide-react";
+import { GrProductHunt } from "react-icons/gr";
 import {
   HiOutlineViewGrid,
-  HiOutlineCube,
-  HiOutlineShoppingCart,
   HiOutlineUsers,
   HiOutlineDocumentText,
   HiOutlineAnnotation,
@@ -15,43 +15,43 @@ export const SIDEBAR_LINKS = [
   {
     key: "dashboard",
     label: "Dashboard",
-    path: "/seller",
+    path: "/",
     icon: <HiOutlineViewGrid />,
   },
   {
     key: "products",
     label: "Products",
-    path: "/seller/products",
-    icon: <HiOutlineCube />,
+    path: "/products",
+    icon: <GrProductHunt />,
   },
   {
     key: "orders",
     label: "Orders",
-    path: "/seller/orders",
-    icon: <HiOutlineShoppingCart />,
+    path: "/orders",
+    icon: <ListOrderedIcon />,
   },
   {
     key: "customers",
     label: "Customers",
-    path: "/seller/customers",
+    path: "/customers",
     icon: <HiOutlineUsers />,
   },
   {
     key: "transactions",
     label: "Transactions",
-    path: "/seller/transactions",
+    path: "/transactions",
     icon: <HiOutlineDocumentText />,
   },
   {
     key: "messages",
     label: "Messages",
-    path: "/seller/messages",
+    path: "/messages",
     icon: <HiOutlineAnnotation />,
   },
   {
     key: "upload",
     label: "Upload Product",
-    path: "/seller/upload",
+    path: "/upload",
     icon: <HiUpload />,
   },
 ];
@@ -60,19 +60,19 @@ export const SIDEBAR_BOTTOM_LINKS = [
   {
     key: "settings",
     label: "Settings",
-    path: "/seller/settings",
+    path: "/settings",
     icon: <HiOutlineCog />,
   },
   {
     key: "account",
     label: "Account",
-    path: "/seller/account",
+    path: "/account",
     icon: <HiUser />,
   },
   {
     key: "support",
     label: "Help & Support",
-    path: "/seller/support",
+    path: "/support",
     icon: <HiOutlineQuestionMarkCircle />,
   },
 ];

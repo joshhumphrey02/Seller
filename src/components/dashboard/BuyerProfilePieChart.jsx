@@ -37,8 +37,8 @@ const renderCustomizedLabel = ({
 
 export default function BuyerProfilePieChart() {
   return (
-    <div className="p-chart w-full h-[22rem] bg-white p-2 rounded-sm border border-gray-200 flex flex-col">
-      <strong className="text-gray-700 font-medium">Buyer Profile</strong>
+    <div className=" w-full hidden xl:flex h-[22rem] bg_primary p-2 rounded-sm border border_color flex-col">
+      <strong className="text_muted font-medium">Buyer Profile</strong>
       <div className="mt-3 w-full flex-1 text-xs">
         <ResponsiveContainer width="100%" height="100%">
           <PieChart width={400} height={300}>

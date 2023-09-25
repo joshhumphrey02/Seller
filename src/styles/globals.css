@@ -2,54 +2,6 @@
 @tailwind components;
 @tailwind utilities;
 
-/* :root {
-  --foreground-rgb: 0, 0, 0;
-  --background-start-rgb: 214, 219, 220;
-  --background-end-rgb: 255, 255, 255;
-}
-
-@media (prefers-color-scheme: light) {
-  :root {
-    --foreground-rgb: 255, 255, 255;
-    --background-start-rgb: 0, 0, 0;
-    --background-end-rgb: 0, 0, 0;
-  }
-} */
-
-* {
-  text-decoration: none;
-  outline: none;
-}
-
-a {
-  text-decoration: none !important;
-  text-decoration-line: none !important;
-}
-
-body {
-  color: black;
-  background: lightgray;
-}
-.seg_bg_primary {
-  background: white;
-}
-.seg_container {
-  width: 92%;
-  margin: 0 auto;
-}
-
-section {
-  display: grid;
-  height: 100vh;
-  grid-template-columns: 15rem 2rem auto;
-}
-input {
-  background: transparent !important;
-  background-color: none !important;
-}
-main {
-  grid-column: 3;
-}
 @layer base {
   html {
     font-family: Arial, Helvetica, sans-serif;
@@ -57,43 +9,154 @@ main {
   }
   th,
   td {
-    @apply py-3 px-2.5 text-sm text-left border-y border-gray-200;
+    @apply py-3 px-2 text-sm text-left border-y border_color;
   }
-  thead {
+  /* thead {
     @apply bg-neutral-100;
-  }
+  } */
   th {
     @apply font-semibold;
   }
   a {
-    @apply text-sky-500 hover:underline;
+    @apply text_primary cursor-pointer hover:underline active:bg-transparent active:text-sky-300;
+  }
+  * {
+    @apply border-border;
   }
 }
-/* .btn-check:checked + .btn,
-.btn.active,
-.btn.show,
-.btn:first-child:active,
-:not(.btn-check) + .btn:active {
-  border-color: transparent;
-} */
 
-@media screen and (max-width: 900px) {
-  .seg_container {
-    width: 94%;
+@layer base {
+  :root {
+    --background: 0 0% 94%;
+    --background-end: 0 0% 90%;
+    --foreground: 222.2 47.4% 11.2%;
+
+    --muted: 210 40% 96.1%;
+    --muted-foreground: 215.4 16.3% 46.9%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 222.2 47.4% 11.2%;
+
+    --border: 214.3 31.8% 91.4%;
+    --input: 214.3 31.8% 91.4%;
+
+    --card: 0 0% 100%;
+    --card-foreground: 222.2 47.4% 11.2%;
+
+    --primary: 222.2 47.4% 11.2%;
+    --primary-foreground: 210 40% 98%;
+
+    --secondary: 0 0% 99%;
+    --secondary-foreground: 222.2 47.4% 11.2%;
+
+    --accent: 210 40% 96.1%;
+    --accent-foreground: 222.2 47.4% 11.2%;
+
+    --destructive: 0 100% 50%;
+    --destructive-foreground: 210 40% 98%;
+
+    --ring: 215 20.2% 65.1%;
+
+    --radius: 0.5rem;
+  }
+
+  .dark {
+    --background: 224 71% 4%;
+    --background-end: 224 71% 7%;
+    --foreground: 213 31% 91%;
+
+    --muted: 223 47% 11%;
+    --muted-foreground: 215.4 16.3% 56.9%;
+
+    --accent: 216 34% 17%;
+    --accent-foreground: 210 40% 98%;
+
+    --popover: 224 71% 4%;
+    --popover-foreground: 215 20.2% 65.1%;
+
+    --border: 216 34% 17%;
+    --input: 216 34% 17%;
+
+    --card: 224 71% 4%;
+    --card-foreground: 213 31% 91%;
+
+    --primary: 210 40% 98%;
+    --primary-foreground: 222.2 47.4% 1.2%;
+
+    --secondary: 222.2 47.4% 11.2%;
+    --secondary-foreground: 210 40% 98%;
+
+    --destructive: 0 63% 31%;
+    --destructive-foreground: 210 40% 98%;
+
+    --ring: 216 34% 17%;
+
+    --radius: 0.5rem;
   }
 }
-@media screen and (max-width: 700px) {
-  .seg_container {
-    width: 96%;
+body {
+  color: hsl(var(--foreground));
+  background: linear-gradient(to bottom, transparent, hsl(var(--background)))
+    hsl(var(--background-end));
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.bg_primary {
+  background: hsl(var(--secondary));
+  color: hsl(var(--foreground));
+}
+.text_primary {
+  color: hsl(var(--foreground));
+}
+.text_muted {
+  color: hsl(var(--muted-foreground));
+}
+.border_color {
+  border-color: hsl(var(--border));
+}
+
+.main {
+  grid-template-columns: 10.8rem auto;
+  position: relative;
+  gap: 1rem;
+  display: grid;
+}
+.sub_main {
+  grid-template-rows: 5rem auto;
+  grid-column-start: 2;
+  width: 100%;
+  position: relative;
+  gap: 1rem;
+  display: grid;
+}
+.sub {
+  grid-row-start: 2;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+input {
+  background: transparent !important;
+  background-color: none !important;
+  outline: none;
+  border: none;
+}
+select {
+  outline: none;
+}
+textarea {
+  outline: none;
+}
+@media screen and (max-width: 1040px) {
+  .sub_main {
+    grid-template-rows: 110px auto;
   }
 }
-@media screen and (max-width: 600px) {
-  .seg_container {
-    width: 96%;
-  }
-}
-@media screen and (max-width: 450px) {
-  .seg_container {
-    width: 100%;
+
+@media screen and (max-width: 765px) {
+  .main {
+    grid-template-columns: 2.7rem auto;
   }
 }
