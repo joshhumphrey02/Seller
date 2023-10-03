@@ -1,13 +1,10 @@
 "use client";
 import { useState } from "react";
-import Button from "react-bootstrap/Button";
-import Form from "react-bootstrap/Form";
+import { Button } from "@/components/ui/button";
 import Link from "next/link";
-import { useRouter, useSearchParams } from "next/navigation";
-import "bootstrap/dist/css/bootstrap.min.css";
+import { useRouter } from "next/navigation";
 import { toast } from "react-toastify";
 import { GrClose } from "react-icons/gr";
-// import { Signin } from "@/models/utils/auth";
 
 const Page = () => {
   const router = useRouter();
@@ -35,15 +32,15 @@ const Page = () => {
           <h3>SIGN IN</h3>
           <GrClose onClick={() => router.push("/")} size={26} />
         </div>
-        <Form
+        <form
           method="post"
           action={"/auth/login"}
           className="px-2 mt-1"
           onSubmit={(e) => handleSubmit(e)}
         >
-          <Form.Group className="mb-3" controlId="exampleForm.ControlInput1">
-            <Form.Label>Email address</Form.Label>
-            <Form.Control
+          <div className="mb-3">
+            <h2>Email address</h2>
+            <div
               type="email"
               value={email}
               onChange={(e) => setEmail(e.target.value)}
@@ -51,17 +48,17 @@ const Page = () => {
               autoFocus
               required
             />
-          </Form.Group>
-          <Form.Group className="mb-3" controlId="exampleForm.ControlInput2">
-            <Form.Label>Password</Form.Label>
-            <Form.Control
+          </div>
+          <div className="mb-3">
+            <h2>Password</h2>
+            <div
               type="password"
               value={password}
               onChange={(e) => setPassword(e.target.value)}
               placeholder="Password"
               required
             />
-          </Form.Group>
+          </div>
           <div className="flex flex-col">
             <p className="text-sm text-center m-0">Sign in with google</p>
             <Button
@@ -81,7 +78,7 @@ const Page = () => {
           <p className="text-sm text-center mt-2">
             Dont have an account? <Link href="/auth/register">Sign up</Link>
           </p>
-        </Form>
+        </form>
       </div>
     </div>
   );

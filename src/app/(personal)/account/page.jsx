@@ -6,11 +6,6 @@ import Account from "@/components/account/Account";
 import Profile from "@/components/account/Profile";
 import "@/styles/dashboard.css";
 
-export const metadata = {
-  title: "Account-ElectroniHaven",
-  description: "Your first stop electronic online website",
-};
-
 const accountList = [
   {
     key: "profile",

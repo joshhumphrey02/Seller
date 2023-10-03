@@ -10,11 +10,6 @@ import { postUpload } from "@/models/upload";
 import Sidebar from "@/components/utils/Sidebar";
 import Navbar from "@/components/utils/Navbar";
 
-export const metadata = {
-  title: "Upload Product",
-  description: "Your first stop electronic online website",
-};
-
 const Page = () => {
   const formRef = useRef();
   const [cat, setCat] = useState("accessories");
