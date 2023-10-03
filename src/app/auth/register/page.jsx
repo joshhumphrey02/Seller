@@ -1,11 +1,8 @@
 "use client";
 import { useState } from "react";
-import Button from "react-bootstrap/Button";
-import Form from "react-bootstrap/Form";
 import Link from "next/link";
-import { Signup } from "@/models/sellers/Profile";
+// import { Signup } from "@/models/sellers/Profile";
 import { useRouter } from "next/navigation";
-import "bootstrap/dist/css/bootstrap.min.css";
 import { useRef } from "react";
 import { GrClose } from "react-icons/gr";
 
@@ -20,7 +17,7 @@ const page = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     setIsLoading(true);
-    const data = await Signup(email, password, name);
+    // const data = await Signup(email, password, name);
     setIsLoading(false);
   };
 
@@ -31,61 +28,61 @@ const page = () => {
           <h3>SIGN UP</h3>
           <GrClose onClick={() => router.push("/")} size={26} />
         </div>
-        <Form
+        <form
           method="post"
           action={"/auth/login"}
           ref={formRef}
           className="px-2 mt-1"
           onSubmit={(e) => handleSubmit(e)}
         >
-          <Form.Group className="mb-3" controlId="exampleForm.ControlInput1">
-            <Form.Label>Full Name</Form.Label>
-            <Form.Control
+          <div className="mb-3">
+            <div>Full Name</div>
+            <input
               type="text"
               onChange={(e) => setName(e.target.value)}
               placeholder="Fullname"
               autoFocus
               required
             />
-          </Form.Group>
-          <Form.Group className="mb-3" controlId="exampleForm.ControlInput2">
-            <Form.Label>Email address</Form.Label>
-            <Form.Control
+          </div>
+          <div className="mb-3">
+            <div>Email address</div>
+            <input
               type="email"
               onChange={(e) => setEmail(e.target.value)}
               placeholder="name@gmail.com"
               required
             />
-          </Form.Group>
-          <Form.Group className="mb-3" controlId="exampleForm.ControlInput3">
-            <Form.Label>Password</Form.Label>
-            <Form.Control
+          </div>
+          <div className="mb-3">
+            <div>Password</div>
+            <input
               type="password"
               onChange={(e) => setPassword(e.target.value)}
               placeholder="Password"
               required
             />
-          </Form.Group>
+          </div>
           <div className="flex flex-col">
             <p className="text-sm text-center m-0">Sign up with google</p>
-            <Button
+            <button
               type="button"
               variant="success"
               size="sm"
               className="m-2 mx-auto w-fit px-2 py-1"
             >
               Google
-            </Button>
+            </button>
           </div>
           <div className="px-3">
-            <Button type="submit" className="mt-3 w-full">
+            <button type="submit" className="mt-3 w-full">
               {isLoading ? "Loading..." : "Sign up"}
-            </Button>
+            </button>
           </div>
           <p className="text-sm text-center mt-2">
             Don't have an account? <Link href="/auth/login">Sign in</Link>
           </p>
-        </Form>
+        </form>
       </div>
     </div>
   );

@@ -1,3 +1,4 @@
+"use client";
 import DashboardStatsGrid from "@/components/dashboard/DashboardStatsGrid";
 import TransactionChart from "@/components/dashboard/TransactionChart";
 import RecentOrders from "@/components/dashboard/RecentOrders";
