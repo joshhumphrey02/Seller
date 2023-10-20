@@ -1,12 +1,13 @@
 import Link from "next/link";
 import { ModeToggle } from "../utils/ModeToggle";
+import Image from "next/image";
 
 const Index = () => {
   return (
     <div className="">
       <div className=" bg_primary h-16 flex items-center p-1 justify-between px-2">
         <h1 className=" font-medium text-2xl">
-          Electroni<span className=" text-sky-600">Haven</span>
+          Art of Electronics
         </h1>
         <nav>
           <ul className=" flex gap-3 items-center transition">
@@ -17,10 +18,10 @@ const Index = () => {
               <Link href="/support">Supoort</Link>
             </li>
             <li className=" bg-sky-500 rounded-md p-1">
-              <Link href="/register">Join ElectroniHaven</Link>
+              <Link href="/auth/register">Join AOE</Link>
             </li>
             <li>
-              <Link href="/login">My Account</Link>
+              <Link href="/auth/login">My Account</Link>
             </li>
             <ModeToggle />
           </ul>
@@ -40,6 +41,21 @@ const Index = () => {
             </h3>
           ))}
         </div>
+      </div>
+      <div className=" bbg_primary  my-3 p-2">
+        <h1 className=" text-center font-3xl">
+          ArtofElectronics is the e-commerce retail <br />
+          platform of various services, serving buyers <br />
+          with quality and tested products.
+        </h1>
+      </div>
+      <div className=" w-full h-[20rem]">
+        <h1>
+          Lorem ipsum dolor sit amet consectetur, adipisicing elit. Voluptatem
+          tempore ullam magni iusto quos voluptate explicabo, minus a laborum!
+          Officia animi dolores tempore temporibus consequuntur repellat
+          pariatur quia sit tempora.
+        </h1>
       </div>
     </div>
   );

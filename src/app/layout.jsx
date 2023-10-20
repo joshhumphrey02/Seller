@@ -1,6 +1,7 @@
 import { Theme } from "@/components/utils/Theme";
 import "@/styles/globals.css";
 import { ToastContainer } from "react-toastify";
+import "@/models/configs/firebase_config";
 
 export default function RootLayout({ children }) {
   return (

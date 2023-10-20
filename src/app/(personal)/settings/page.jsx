@@ -8,14 +8,15 @@ export const metadata = {
 
 export default function page() {
   return (
-    <div className=" main_seg relative w-screen overflow-x-hidden grid h-screen">
-      <Sidebar page="seller" />
+    <div className=" main">
+      <Sidebar />
       <div
-        style={{ gridTemplateRows: "5rem auto" }}
-        className=" col-start-2 w-[98%] gap-2 relative grid"
+        className="sub_main"
       >
         <Navbar />
-        <div className=" p-1 row-start-2 flex flex-col"></div>
+        <div className="sub">
+          
+        </div>
       </div>
     </div>
   );

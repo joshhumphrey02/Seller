@@ -1,3 +1,4 @@
+import { getAuth, onAuthStateChanged } from "firebase/auth";
 import Index from "@/components/dashboard";
 import Dashboard from "@/components/dashboard/dashboard";
 import "@/styles/dashboard.css";
@@ -8,6 +9,7 @@ export const metadata = {
 };
 
 export default function Page() {
-  const user = true;
+  const auth = getAuth();
+  const user = auth.currentUser;
   return <div>{user ? <Dashboard /> : <Index />}</div>;
 }
