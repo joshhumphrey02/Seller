@@ -10,4 +10,4 @@ const firebaseConfig = {
 };
 
 // Initialize Firebase
-initializeApp(firebaseConfig);
+export const firebase = ()=>initializeApp(firebaseConfig);

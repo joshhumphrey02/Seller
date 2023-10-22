@@ -2,8 +2,12 @@
 import { getAuth, onAuthStateChanged } from "firebase/auth";
 import { useEffect, useState } from "react";
 import { toast } from "react-toastify";
+import Index from "@/components/dashboard";
+import Dashboard from "@/components/dashboard/dashboard";
+import { firebase } from "@/models/configs/firebase_config";
 
 export const CurrentUser = () => {
+  firebase();
   const auth = getAuth();
   const [user, setUser] = useState(null);
   useEffect(() => {
@@ -17,5 +21,8 @@ export const CurrentUser = () => {
     });
   }, [auth]);
 
-  return user;
+  return (
+    <>
+    {user ? <Dashboard user={user}/> : <Index />}</>
+  );
 };
