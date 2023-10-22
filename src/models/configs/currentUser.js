@@ -4,10 +4,9 @@ import { useEffect, useState } from "react";
 import { toast } from "react-toastify";
 import Index from "@/components/dashboard";
 import Dashboard from "@/components/dashboard/dashboard";
-import { firebase } from "@/models/configs/firebase_config";
+import "@/models/configs/firebase_config";
 
 export const CurrentUser = () => {
-  firebase();
   const auth = getAuth();
   const [user, setUser] = useState(null);
   useEffect(() => {
