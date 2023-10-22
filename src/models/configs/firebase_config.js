@@ -1,12 +1,12 @@
 import { initializeApp } from "firebase/app";
 const firebaseConfig = {
-  apiKey: "AIzaSyDSJFXIegVVsfVQJAwz-3ZUWLqvj4OyZ08",
-  authDomain: "electronihaven.firebaseapp.com",
-  projectId: "electronihaven",
-  storageBucket: "electronihaven.appspot.com",
-  messagingSenderId: "268616080035",
-  appId: "1:268616080035:web:b9365007a47fed5ac67d16",
-  measurementId: "G-VC74GRKC4D",
+  apiKey: "AIzaSyAaq_0o4auZO5VWbAO8iXiWFcyVsz6VWqs",
+  authDomain: "art-of-electronics.firebaseapp.com",
+  projectId: "art-of-electronics",
+  storageBucket: "art-of-electronics.appspot.com",
+  messagingSenderId: "450802443011",
+  appId: "1:450802443011:web:6efebecac52e3e63a1bf36",
+  measurementId: "G-0T0EGLP87N"
 };
 
 // Initialize Firebase

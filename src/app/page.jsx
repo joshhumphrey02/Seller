@@ -1,15 +1,16 @@
-import { getAuth, onAuthStateChanged } from "firebase/auth";
+"use client"
 import Index from "@/components/dashboard";
 import Dashboard from "@/components/dashboard/dashboard";
 import "@/styles/dashboard.css";
+import "@/models/configs/firebase_config";
+import { CurrentUser } from "@/models/configs/currentUser";
 
 export const metadata = {
-  title: "Sellers-ElectroniHaven",
+  title: "Sellers-ArtofElectronics",
   description: "Your first stop electronic online website",
 };
 
 export default function Page() {
-  const auth = getAuth();
-  const user = auth.currentUser;
-  return <div>{user ? <Dashboard /> : <Index />}</div>;
+  let user = CurrentUser();
+  return <div>{user ? <Dashboard user={user}/> : <Index />}</div>;
 }

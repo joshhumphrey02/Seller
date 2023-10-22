@@ -7,11 +7,27 @@ import { SIDEBAR_LINKS, SIDEBAR_BOTTOM_LINKS } from "@/models/SidebarLinks";
 import { ActiveLinks } from "@/models/utils/activeLinks";
 import { ArrowBigRight, ArrowBigLeft } from "lucide-react";
 import { useState } from "react";
+import { getAuth, signOut } from "firebase/auth";
+import { toast } from "react-toastify";
+import { useRouter } from "next/navigation";
 
 const linkClass =
   "flex items-center gap-2 font-normal px-3 py-2 hover:bg-sky-300 hover:no-underline active:bg-sky-400 rounded-sm text-base";
 export default function Sidebar() {
   const [sideBarOpen, setSideBarOpen] = useState(false);
+  const auth = getAuth();
+  const router = useRouter();
+  const logout = async()=> {
+    try {
+      let logout = await signOut(auth);
+      if(logout) {
+        toast.success("Logout successfully");
+        return router.push("/");
+      }
+    } catch (error) {
+      toast.error(error.message);
+    }
+  }
   return (
     <div
       className={classNames(
@@ -55,7 +71,7 @@ export default function Sidebar() {
             linkClass,
             "cursor-pointer  border-t font-medium border_color mb-3 bg-red-400 text_primary"
           )}
-          // onClick={Logout}
+          onClick={logout}
         >
           <span className="text-xl">
             <HiOutlineLogout />

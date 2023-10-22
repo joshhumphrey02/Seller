@@ -10,17 +10,17 @@ import { Plus } from "lucide-react";
 import Link from "next/link";
 import "@/styles/dashboard.css";
 
-export default function Dashboard() {
+export default function Dashboard({user}) {
   return (
     <div className=" main">
       <Sidebar />
       <div className=" sub_main">
-        <Navbar />
+        <Navbar user={user}/>
         <div className="sub">
           <div className=" my-3 px-1 pt-2 flex flex-row justify-between items-center">
             <div>
               <h1 className=" text_primary font-medium text-2xl">
-                Welcome back, Humphrey
+                Welcome back, {user?.displayName}
               </h1>
               <h4 className=" text_muted mt-2">
                 Upload products, manage and track your customers and orders.

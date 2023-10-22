@@ -1,7 +1,7 @@
 import { Theme } from "@/components/utils/Theme";
 import "@/styles/globals.css";
 import { ToastContainer } from "react-toastify";
-import "@/models/configs/firebase_config";
+import "react-toastify/ReactToastify.min.css";
 
 export default function RootLayout({ children }) {
   return (
@@ -16,8 +16,8 @@ export default function RootLayout({ children }) {
           <div className=" xl:w-[95%] md:w-[97%] w-[99%] mx-auto">
             {children}
           </div>
-        </Theme>
         <ToastContainer />
+        </Theme>
       </body>
     </html>
   );
