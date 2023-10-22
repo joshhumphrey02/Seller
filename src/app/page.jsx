@@ -1,4 +1,3 @@
-"use client"
 import Index from "@/components/dashboard";
 import Dashboard from "@/components/dashboard/dashboard";
 import "@/styles/dashboard.css";
