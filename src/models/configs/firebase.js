@@ -10,6 +10,6 @@ const firebaseConfig = {
 };
 
 // Initialize Firebase
-export const firebase= ()=>initializeApp(firebaseConfig);
+initializeApp(firebaseConfig);
 import { getAuth } from "firebase/auth";
 export const auth = getAuth(initializeApp(firebaseConfig));

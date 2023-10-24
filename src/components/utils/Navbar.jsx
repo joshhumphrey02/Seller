@@ -8,6 +8,7 @@ import { MdSettings } from "react-icons/md";
 import { PiSignOut } from "react-icons/pi";
 import Image from "next/image";
 import { ModeToggle } from "./ModeToggle";
+import { useRouter } from "next/navigation";
 import {
   DropdownMenu,
   DropdownMenuContent,
@@ -19,6 +20,8 @@ import { Button } from "../ui/button";
 import { Input } from "../ui/input";
 
 export default function Navbar() {
+  const router = useRouter();
+  const user = CurrentUser();
   return (
     <div className="bg_primary grid lg:grid-cols-7 lg:grid-rows-1 grid-cols-4 grid-rows-2 sticky z-20 top-0 lg:h-16 h-fit tablet:gap-0 gap-3 lg:px-1 px-2 items-center xl:pb-0 pb-2 mb-2 border-b border_color">
       <form className="w-full items-center row-start-2 lg:row-start-1 lg:col-span-3 col-span-4 border border-slate-600 rounded-md flex gap-1 ">
@@ -60,7 +63,7 @@ export default function Navbar() {
             className="h-10 w-10 rounded-full bg-sky-500 overflow-hidden bg-cover bg-no-repeat bg-center"
           >
             <Image
-              src={CurrentUser()?.photoURL ? CurrentUser()?.photoURL : "/profile.png"}
+              src={user?.photoURL ? user?.photoURL : "/profile.png"}
               width={40}
               height={40}
               alt="profile image"
@@ -86,7 +89,7 @@ export default function Navbar() {
               </Link>
             </DropdownMenuItem>
             <DropdownMenuItem>
-              <span onClick={()=> Logout()} className=" font-normal flex items-center cursor-pointer py-1 w-full gap-1 rounded-sm text-base text_primary bg-sky-400">
+              <span onClick={()=> Logout(router)} className=" font-normal flex items-center cursor-pointer py-1 w-full gap-1 rounded-sm text-base text_primary bg-sky-400">
                 <PiSignOut />
                 Logout
               </span>

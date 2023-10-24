@@ -8,11 +8,13 @@ import { SIDEBAR_LINKS, SIDEBAR_BOTTOM_LINKS } from "@/models/SidebarLinks";
 import { ActiveLinks } from "@/models/utils/activeLinks";
 import { ArrowBigRight, ArrowBigLeft } from "lucide-react";
 import { useState } from "react";
+import { useRouter } from "next/navigation";
 
 const linkClass =
   "flex items-center gap-2 font-normal px-3 py-2 hover:bg-sky-300 hover:no-underline active:bg-sky-400 rounded-sm text-base";
 
 export default function Sidebar() {
+  const router = useRouter();
   const [sideBarOpen, setSideBarOpen] = useState(false);
   return (
     <div
@@ -57,7 +59,7 @@ export default function Sidebar() {
             linkClass,
             "cursor-pointer  border-t font-medium border_color mb-3 bg-red-400 text_primary"
           )}
-          onClick={() => Logout()}
+          onClick={() => Logout(router)}
         >
           <span className="text-xl">
             <HiOutlineLogout />

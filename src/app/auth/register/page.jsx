@@ -5,7 +5,6 @@ import { useRouter } from "next/navigation";
 import { useRef } from "react";
 import { GrClose } from "react-icons/gr";
 import { Button } from "@/components/ui/button";
-import "@/models/configs/firebase";
 import { HandleRegister } from "@/models/auth/register";
 import { GoogleRedirect, HandleGoogle } from "@/models/auth/google";
 
@@ -81,7 +80,7 @@ const Page = () => {
               size="sm"
               className="m-2 mx-auto bg-green-500 w-fit px-2 py-1"
             >
-              <span onClick={HandleGoogle}>Google</span>
+              <span onClick={()=>HandleGoogle()}>Google</span>
             </Button>
           </div>
           <div className="px-3">

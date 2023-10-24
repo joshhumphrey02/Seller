@@ -6,10 +6,10 @@ import {
   getRedirectResult,
 } from "firebase/auth";
 
-const provider = new GoogleAuthProvider();
 
 export const HandleGoogle = async () => {
   try {
+    const provider = new GoogleAuthProvider();
     signInWithRedirect(auth, provider);
   } catch (error) {
     return toast.error(error.message);

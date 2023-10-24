@@ -64,7 +64,7 @@ const Page = () => {
               size="sm"
               className="m-2 mx-auto bg-green-500 w-fit px-2 py-1"
             >
-              <span onClick={HandleGoogle}>Google</span>
+              <span onClick={()=>HandleGoogle()}>Google</span>
             </Button>
           </div>
           <div className="px-3">

@@ -42,14 +42,14 @@ const Index = () => {
           ))}
         </div>
       </div>
-      <div className=" bbg_primary  my-3 p-2">
+      <div className=" bg_primary  my-3 p-2">
         <h1 className=" text-center font-3xl">
           Art of Electronics is the e-commerce retail <br />
           platform of various services, serving buyers <br />
           with quality and tested products.
         </h1>
       </div>
-      <div className=" w-full h-[20rem]">
+      <div className=" w-full bg_primary">
         <h1>
           Lorem ipsum dolor sit amet consectetur, adipisicing elit. Voluptatem
           tempore ullam magni iusto quos voluptate explicabo, minus a laborum!

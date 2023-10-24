@@ -5,7 +5,7 @@ import { useEffect, useState } from 'react'
 import { useRouter } from 'next/navigation'
 
 export const CurrentUser = ()=> {
-	const [user, setUser] = useState("")
+	const [user, setUser] = useState()
 	const router = useRouter()
 
 	useEffect(() => {
