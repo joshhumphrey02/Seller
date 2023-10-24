@@ -1,5 +1,4 @@
 import { initializeApp } from "firebase/app";
-import { getAuth } from "firebase/auth";
 const firebaseConfig = {
   apiKey: "AIzaSyAaq_0o4auZO5VWbAO8iXiWFcyVsz6VWqs",
   authDomain: "art-of-electronics.firebaseapp.com",
@@ -13,4 +12,5 @@ const firebaseConfig = {
 // Initialize Firebase
 export const firebaseApp = initializeApp(firebaseConfig);
 
+import { getAuth } from "firebase/auth";
 export const auth = getAuth(firebaseApp);

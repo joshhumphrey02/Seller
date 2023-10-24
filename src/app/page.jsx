@@ -1,10 +1,10 @@
 "use client";
+import { auth } from "@/models/configs/firebase";
+import { onAuthStateChanged } from "firebase/auth";
 import Index from "@/components/dashboard";
 import Dashboard from "@/components/dashboard/dashboard";
 import "@/styles/dashboard.css";
 import { useEffect, useState } from "react";
-import { auth } from "@/models/configs/firebase";
-import { onAuthStateChanged } from "firebase/auth";
 
 export default function Page() {
   const [user, setUser] = useState(undefined);

@@ -15,7 +15,7 @@ export default function Dashboard({user}) {
     <div className=" main">
       <Sidebar />
       <div className=" sub_main">
-        <Navbar user={user}/>
+        <Navbar />
         <div className="sub">
           <div className=" my-3 px-1 pt-2 flex flex-row justify-between items-center">
             <div>

@@ -1,4 +1,5 @@
 "use client";
+import { Logout } from "@/models/auth/logout";
 import classNames from "classnames";
 import { FcBullish } from "react-icons/fc";
 import { HiOutlineLogout } from "react-icons/hi";
@@ -7,7 +8,6 @@ import { SIDEBAR_LINKS, SIDEBAR_BOTTOM_LINKS } from "@/models/SidebarLinks";
 import { ActiveLinks } from "@/models/utils/activeLinks";
 import { ArrowBigRight, ArrowBigLeft } from "lucide-react";
 import { useState } from "react";
-import { Logout } from "@/models/auth/logout";
 
 const linkClass =
   "flex items-center gap-2 font-normal px-3 py-2 hover:bg-sky-300 hover:no-underline active:bg-sky-400 rounded-sm text-base";

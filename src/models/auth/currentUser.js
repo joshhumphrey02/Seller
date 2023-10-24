@@ -1,12 +1,11 @@
 "use client"
+import { auth } from '@/models/configs/firebase'
 import { onAuthStateChanged } from 'firebase/auth'
 import { useEffect, useState } from 'react'
-
-import { auth } from '@/models/configs/firebase'
 import { useRouter } from 'next/navigation'
 
 export const CurrentUser = ()=> {
-	const [user, setUser] = useState()
+	const [user, setUser] = useState("")
 	const router = useRouter()
 
 	useEffect(() => {
