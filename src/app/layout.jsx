@@ -3,6 +3,12 @@ import "@/styles/globals.css";
 import { ToastContainer } from "react-toastify";
 import "react-toastify/ReactToastify.min.css";
 
+
+export const metadata = {
+  title: "Sellers-ArtofElectronics",
+  description: "Your first stop electronic online website",
+};
+
 export default function RootLayout({ children }) {
   return (
     <html lang="en" suppressHydrationWarning>

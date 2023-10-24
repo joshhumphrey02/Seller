@@ -5,24 +5,13 @@ import { useRouter } from "next/navigation";
 import { useRef } from "react";
 import { GrClose } from "react-icons/gr";
 import { Button } from "@/components/ui/button";
-import "@/models/configs/firebase_config";
-import { toast } from "react-toastify";
-import {
-  getAuth,
-  sendEmailVerification,
-  createUserWithEmailAndPassword,
-  updateProfile,
-  GoogleAuthProvider,
-  signInWithRedirect,
-  getRedirectResult,
-  onAuthStateChanged,
-} from "firebase/auth";
+import "@/models/configs/firebase";
+import { HandleRegister } from "@/models/auth/register";
+import { GoogleRedirect, HandleGoogle } from "@/models/auth/google";
 
 const Page = () => {
   const router = useRouter();
   const formRef = useRef();
-  const auth = getAuth();
-  const provider = new GoogleAuthProvider();
   const [isLoading, setIsLoading] = useState(false);
   const [person, setPerson] = useState({
     name: "",
@@ -30,44 +19,9 @@ const Page = () => {
     password: "",
   });
 
-  const handleGoogle = async () => {
-    try {
-      let signin = await signInWithRedirect(auth, provider);
-      if (signin) {
-        await getRedirectResult(auth);
-      }
-    } catch (error) {
-      return toast.error(error.message);
-    }
-  };
   useEffect(()=> {
-    onAuthStateChanged(auth, user=> {
-      if(user) return router.push("/");
-    })
-  }, [auth, router])
-  const handleSubmit = async (e) => {
-    e.preventDefault();
-    setIsLoading(true);
-    try {
-      const res = await createUserWithEmailAndPassword(
-        auth,
-        person.email,
-        person.password
-      );
-      if (res) {
-        toast.success("Sign up successfull");
-        await updateProfile(auth.currentUser, {
-          displayName: person.name,
-          photoURL: null,
-        });
-        setIsLoading(false);
-        return router.push("/auth/login");
-      }
-    } catch (error) {
-      setIsLoading(false);
-      return toast.error(error.message);
-    }
-  };
+    GoogleRedirect(router);
+  }, [router])
 
   return (
     <div className="flex md:items-center md:mt-0 mt-[10rem] justify-center w-full h-screen ">
@@ -81,7 +35,7 @@ const Page = () => {
           action={"/auth/login"}
           ref={formRef}
           className="p-2 mt-1"
-          onSubmit={(e) => handleSubmit(e)}
+          onSubmit={(e) => HandleRegister(e, person, setIsLoading, router)}
         >
           <div className="mb-3 border-2 border_color rounded px-1">
             <div className=" text-sm">Full Name</div>
@@ -127,7 +81,7 @@ const Page = () => {
               size="sm"
               className="m-2 mx-auto bg-green-500 w-fit px-2 py-1"
             >
-              <span onClick={handleGoogle}>Google</span>
+              <span onClick={HandleGoogle}>Google</span>
             </Button>
           </div>
           <div className="px-3">

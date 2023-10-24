@@ -1,27 +1,34 @@
-"use client";
-import { getAuth, onAuthStateChanged } from "firebase/auth";
-import { useEffect, useState } from "react";
-import { toast } from "react-toastify";
-import Index from "@/components/dashboard";
-import Dashboard from "@/components/dashboard/dashboard";
-import "@/models/configs/firebase_config";
+"use client"
+import { onAuthStateChanged } from 'firebase/auth'
+import { useEffect, useState } from 'react'
 
-export const CurrentUser = () => {
-  const auth = getAuth();
-  const [user, setUser] = useState(null);
-  useEffect(() => {
     onAuthStateChanged(auth, (data) => {
-      if (data) {
-        toast.success("Sign in Successfully");
-      } else {
-        toast.success("Logout successfully");
-      }
-      return setUser(data);
-    });
-  }, [auth]);
+import { auth } from '@/models/configs/firebase'
+import { useRouter } from 'next/navigation'
 
-  return (
-    <>
-    {user ? <Dashboard user={user}/> : <Index />}</>
-  );
-};
+export const CurrentUser = ()=> {
+	const [user, setUser] = useState()
+	const router = useRouter()
+
+	useEffect(() => {
+		const unsubscribe = onAuthStateChanged(auth, (authUser) => {
+			setUser(authUser)
+		})
+
+		return () => unsubscribe()
+	}, [])
+
+	useEffect(() => {
+		onAuthStateChanged(auth, (authUser) => {
+			if (user === undefined) return
+
+			// refresh when user changed to ease testing
+			if (user?.email !== authUser?.email) {
+				router.refresh()
+			}
+		})
+		// eslint-disable-next-line react-hooks/exhaustive-deps
+	}, [user])
+
+	return user
+}

@@ -15,8 +15,9 @@ import {
 import { Search } from "lucide-react";
 import { Button } from "../ui/button";
 import { Input } from "../ui/input";
+import { Logout } from "@/models/auth/logout";
 
-export default function Navbar() {
+export default function Navbar({user}) {
   return (
     <div className="bg_primary grid lg:grid-cols-7 lg:grid-rows-1 grid-cols-4 grid-rows-2 sticky z-20 top-0 lg:h-16 h-fit tablet:gap-0 gap-3 lg:px-1 px-2 items-center xl:pb-0 pb-2 mb-2 border-b border_color">
       <form className="w-full items-center row-start-2 lg:row-start-1 lg:col-span-3 col-span-4 border border-slate-600 rounded-md flex gap-1 ">
@@ -58,7 +59,7 @@ export default function Navbar() {
             className="h-10 w-10 rounded-full bg-sky-500 overflow-hidden bg-cover bg-no-repeat bg-center"
           >
             <Image
-              src="/profile.png"
+              src={user?.photoURL ? user?.photoURL : "/profile.png"}
               width={40}
               height={40}
               alt="profile image"
@@ -84,7 +85,7 @@ export default function Navbar() {
               </Link>
             </DropdownMenuItem>
             <DropdownMenuItem>
-              <span className=" font-normal flex items-center cursor-pointer py-1 w-full gap-1 rounded-sm text-base text_primary bg-sky-400">
+              <span onClick={()=> Logout()} className=" font-normal flex items-center cursor-pointer py-1 w-full gap-1 rounded-sm text-base text_primary bg-sky-400">
                 <PiSignOut />
                 Logout
               </span>

@@ -1,13 +1,32 @@
+"use client";
+import Index from "@/components/dashboard";
+import Dashboard from "@/components/dashboard/dashboard";
 import "@/styles/dashboard.css";
-import { CurrentUser } from "@/models/configs/currentUser";
-
-export const metadata = {
-  title: "Sellers-ArtofElectronics",
-  description: "Your first stop electronic online website",
-};
+import { useEffect, useState } from "react";
+import { auth } from "@/models/configs/firebase";
+import { onAuthStateChanged } from "firebase/auth";
 
 export default function Page() {
-  return <div>
-    <CurrentUser />
-  </div>;
+  const [user, setUser] = useState(undefined);
+  const [isLoading, setIsLoading] = useState(true);
+
+  useEffect(() => {
+    onAuthStateChanged(auth, (client) => {
+      if (client) setUser(client);
+      return setIsLoading(false);
+    });
+  }, [user]);
+  return (
+    <div>
+      {isLoading ? (
+        <div className=" w-full h-screen flex items-center justify-center">
+          <p className=" text-blue-500 text-lg font-medium">Loading...</p>
+        </div>
+      ) : user ? (
+        <Dashboard user={user} />
+      ) : (
+        <Index />
+      )}
+    </div>
+  );
 }

@@ -11,16 +11,16 @@ const Index = () => {
         </h1>
         <nav>
           <ul className=" flex gap-3 items-center transition">
-            <li>
+            <li className=" md:block hidden">
               <Link href="/help">Help Center</Link>
             </li>
-            <li>
+            <li className=" md:block hidden">
               <Link href="/support">Supoort</Link>
             </li>
-            <li className=" bg-sky-500 rounded-md p-1">
+            <li className=" bg-sky-500 rounded-md px-1 py-2">
               <Link href="/auth/register">Join AOE</Link>
             </li>
-            <li>
+            <li className=" md:block hidden">
               <Link href="/auth/login">My Account</Link>
             </li>
             <ModeToggle />
@@ -29,7 +29,7 @@ const Index = () => {
       </div>
       <div className=" my-3 bg_primary p-1 ">
         <h2 className=" text-center my-1">Why sell on ElectroniHaven?</h2>
-        <div className=" mt-4 flex justify-between px-2 items-center">
+        <div className=" mt-4 grid gap-4 grid-cols-2 md:grid-cols-4 justify-between px-2 items-center">
           {[
             { id: "Connect with buyers" },
             { id: "Sell more products" },
@@ -44,7 +44,7 @@ const Index = () => {
       </div>
       <div className=" bbg_primary  my-3 p-2">
         <h1 className=" text-center font-3xl">
-          ArtofElectronics is the e-commerce retail <br />
+          Art of Electronics is the e-commerce retail <br />
           platform of various services, serving buyers <br />
           with quality and tested products.
         </h1>

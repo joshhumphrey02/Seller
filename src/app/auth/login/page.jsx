@@ -3,61 +3,21 @@ import { useEffect, useState } from "react";
 import { Button } from "@/components/ui/button";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
-import { toast } from "react-toastify";
 import { GrClose } from "react-icons/gr";
-import "@/models/configs/firebase_config";
-import {
-  getAuth,
-  signInWithEmailAndPassword,
-  GoogleAuthProvider,
-  signInWithRedirect,
-  getRedirectResult,
-  onAuthStateChanged,
-} from "firebase/auth";
+import { HandleLogin } from "@/models/auth/login";
+import { GoogleRedirect, HandleGoogle } from "@/models/auth/google";
 
 const Page = () => {
   const router = useRouter();
-  const auth = getAuth();
-  const provider = new GoogleAuthProvider();
   const [isLoading, setIsLoading] = useState(false);
   const [person, setPerson] = useState({
     email: "",
     password: "",
   });
-
-  const handleGoogle = async () => {
-    try {
-      await signInWithRedirect(auth, provider);
-      await getRedirectResult(auth);
-    } catch (error) {
-      return toast.error(error.message);
-    }
-  };
-
-  useEffect(() => {
-    onAuthStateChanged(auth, (user) => {
-      if (user) return router.push("/");
-    });
-  }, [auth, router]);
-  const handleSubmit = async (e) => {
-    e.preventDefault();
-    setIsLoading(true);
-    try {
-      let res = await signInWithEmailAndPassword(
-        auth,
-        person.email,
-        person.password
-      );
-      if (res) {
-        setIsLoading(false);
-        toast.success("Sign in successfull");
-        return router.push("/");
-      }
-    } catch (error) {
-      setIsLoading(false);
-      return toast.error(error.message);
-    }
-  };
+  
+  useEffect(()=> {
+    GoogleRedirect(router);
+  }, [router])
 
   return (
     <div className="flex md:items-center md:mt-0 mt-[10rem] justify-center w-full h-screen ">
@@ -69,7 +29,7 @@ const Page = () => {
         <form
           method="post"
           className="px-2 mt-1"
-          onSubmit={(e) => handleSubmit(e)}
+          onSubmit={(e) => HandleLogin(e, person, setIsLoading, router)}
           autoComplete="true"
         >
           <div className="mb-3 border-2 border_color rounded px-1">
@@ -104,7 +64,7 @@ const Page = () => {
               size="sm"
               className="m-2 mx-auto bg-green-500 w-fit px-2 py-1"
             >
-              <span onClick={handleGoogle}>Google</span>
+              <span onClick={HandleGoogle}>Google</span>
             </Button>
           </div>
           <div className="px-3">
