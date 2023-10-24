@@ -1,4 +1,4 @@
-import { auth } from "@/models/configs/firebase";
+import { auth, firebase } from "@/models/configs/firebase";
 import { signOut } from "firebase/auth";
 import { toast } from "react-toastify";
 import { useRouter } from "next/navigation";
@@ -7,6 +7,7 @@ import Swal from 'sweetalert2'
 
 
 export const Logout = () => {
+  firebase();
     const router = useRouter();
     Swal.fire({
       title: 'Are you sure you want to logout?',
