@@ -2,7 +2,6 @@
 import { onAuthStateChanged } from 'firebase/auth'
 import { useEffect, useState } from 'react'
 
-    onAuthStateChanged(auth, (data) => {
 import { auth } from '@/models/configs/firebase'
 import { useRouter } from 'next/navigation'
 
